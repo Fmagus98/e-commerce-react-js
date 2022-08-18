@@ -1,6 +1,8 @@
 import './Navbar.css';
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.bundle.min.js"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import CardWidget from "./CartWidget"
+
 function NavBar() {
     return (
         <header className="p-3 mb-3 border-bottom">
@@ -31,25 +33,12 @@ function NavBar() {
                             <li><a className="dropdown-item" href="#9">Sign out</a></li>
                         </ul>
                     </div>
+                    <CardWidget/>
                 </div>
             </div>
         </header>
     )
 }
- export default NavBar;
+export default NavBar;
 
 
-
-/* 
- // <nav id="nav">
-        //     <picture className="logo">
-        //     <img src={require("../../img/aguila.png")} alt=""></img>
-        //     <p> shared</p>
-        //     </picture>
-        //     <ul>
-        //         <li><a href="index.html">index</a></li>
-        //         <li><a href="#category">category</a></li>
-        //         <li><a href="#shopping cart">Shopping cart</a></li>
-        //         <li><a href="#contact">contact</a></li>
-        //     </ul>
-        // </nav> */
