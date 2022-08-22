@@ -1,15 +1,17 @@
 import './Navbar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import CardWidget from "./CartWidget"
+import CardWidget from "./CartWidget";
+import logoUser from "../../img/usuario.png";
+import logoBrand from "../../img/aguila.png";
 
-function NavBar() {
+function NavBar({countCart}) {
     return (
         <header className="p-3 mb-3 border-bottom">
             <div className="container m-0">
                 <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                        <img src={require("../../img/aguila.png")} alt=""className="bi me-2" width="40" height="32" role="img"></img>
+                        <img src={logoBrand} alt=""className="bi me-2" width="40" height="32" role="img"></img>
                     </a>
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center  mb-md-0">
                         <li><a href="#1" className="nav-link px-2 link-secondary">index</a></li>
@@ -24,7 +26,7 @@ function NavBar() {
 
                     <div className="dropdown text-end">
                     <a href="#5" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={require("../../img/usuario.png")} alt="mdo" width="32" height="32" className="rounded-circle"></img>
+                            <img src={logoUser} alt="mdo" width="32" height="32" className="rounded-circle"></img>
                         </a>
                         <ul className="dropdown-menu text-small">
                             <li><a className="dropdown-item" href="#6">My shopping</a></li>
@@ -33,7 +35,7 @@ function NavBar() {
                             <li><a className="dropdown-item" href="#9">Sign out</a></li>
                         </ul>
                     </div>
-                    <CardWidget/>
+                    <CardWidget counter={countCart}/>
                 </div>
             </div>
         </header>
