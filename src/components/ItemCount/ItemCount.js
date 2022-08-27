@@ -17,7 +17,7 @@ const Itemcount = ({ stock, initial, onAdd, product,price,image }) => {
 
     return (
         <>
-            <div className="col-md-3 col-sm-6">
+            <div className=" col-md-3 col-sm-6">
                 <div className="product-grid">
                     <div className="product-image">
                         <a href="1" className="image">
@@ -26,14 +26,14 @@ const Itemcount = ({ stock, initial, onAdd, product,price,image }) => {
                         <ul className="product-links">
                             <li><a href="2"><i className="fa fa-search"></i></a></li>
                         </ul>
-                        <button onClick={decrement}>-</button>
-                        <p>{counter}</p>
-                        <button onClick={increment}>+</button>
-                        <button onClick={() => (onAdd(counter))}>Add cart</button>
                     </div>
-                    <div className="product-content">
-                        <h3 className="title"><a href="6">{product}</a></h3>
-                        <div className="price">{price}</div>
+                    <div className="card-body">
+                        <h6 className="card-title">{product}</h6>
+                        <div className="price m-2">${price}</div>
+                        <button className="d-inline btn" onClick={decrement}>-</button>
+                        <p className="d-inline m-2">{counter}</p>
+                        <button className="btn" onClick={increment}>+</button>
+                        <button type="button" className="d-block btn btn-primary m-auto "onClick={() => (onAdd(counter))}>Add cart</button>
                     </div>
                 </div>
             </div>

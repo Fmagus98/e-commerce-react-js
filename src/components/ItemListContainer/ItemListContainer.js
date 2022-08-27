@@ -16,7 +16,18 @@ const ItemListContainer = ({ greeting, onAdd }) => {
         })
     }, [])//el [] indica que cuando renderize el return div, recien ahi ejecute el useEffect
     if (loading) {
-        return <h1>loading products...</h1>
+        return (
+            <>
+            {/* <div className="m-2"> */}
+             {/* <h5>loading products...</h5>
+                <div class="progress">
+                    <div className="loading progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>  */}
+                <img className="loading" src="./assets/img/aguila.png" alt="aguila"></img>
+                <h4 className="loading-text">Loading...</h4>
+{/* </div> */}
+
+            </>)
     }
     const productsTransform = products.map(product => {
         return (
@@ -26,7 +37,7 @@ const ItemListContainer = ({ greeting, onAdd }) => {
     return (
         <>
             <h1>{greeting}</h1>
-            <div className="row">
+            <div className="listProducts row w-100">
                 {productsTransform}
             </div>
         </>

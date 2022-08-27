@@ -11,9 +11,7 @@ function App() {
   }
   return (
     <>
-    <header>
       <NavBar countCart={countCartInitial} />
-    </header>
       <ItemListContainer onAdd={OnAddCart}  greeting={"productos"} />
     </>
   );

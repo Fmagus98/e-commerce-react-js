@@ -1,3 +1,40 @@
+.loading{
+    width:30vw;
+    margin-left: 35vw;
+    margin-top: 10vh;
+    animation-name: completarCarga;
+    animation-duration: 2s;
+}
+.loading-text{
+    width: 100vw;
+    text-align: center;
+}
+@keyframes completarCarga {
+    
+    0%{
+        opacity: 1;;
+    }
+    25%{opacity:0;
+}
+50%{
+    opacity: 1;;
+}
+75%{opacity:0;
+}
+
+100%{opacity:1;
+}
+}
+.listProducts{
+    animation-name: loadingProducts;
+    animation-duration:1s;
+}
+@keyframes loadingProducts{
+    from{
+        opacity:0;
+    }
+    to{opacity:1}
+}
 .product-grid{
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -46,10 +83,6 @@
     transition: all 0.3s;
 }
 .product-grid .product-links li:last-child a{ border-bottom: 1px solid #333; }
-.product-grid .product-links li a:hover{
-    color: #fff;
-    background: #333;
-}
 .product-grid .add-to-cart{
     background: #A5BA8D;
     color: #fff;
@@ -63,35 +96,8 @@
     bottom: -60px;
     transition: all 0.3s ease 0s;
 }
-.product-grid:hover .add-to-cart{ bottom: 0; }
-.product-grid .add-to-cart:hover{ text-shadow: 4px 4px rgba(0,0,0,0.2); }
-.product-grid .product-content{
-    background: #fff;
-    padding: 15px;
-    box-shadow: 0 0 0 5px rgba(0,0,0,0.1) inset;
-}
-.product-grid .title{
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: capitalize;
-    margin: 0 0 7px;
-}
-.product-grid .title a{
-    color: #777;
-    transition: all 0.3s ease 0s;
-}
-.product-grid .title a:hover{ color: #a5ba8d; }
-.product-grid .price{
-    color: #0d0d0d;
-    font-size: 14px;
-    font-weight: 600;
-}
-.product-grid .price span{
-    color: #888;
-    font-size: 13px;
-    font-weight: 400;
-    text-decoration: line-through;
-}
+
 @media screen and (max-width: 990px){
     .product-grid{ margin-bottom: 30px; }
+    
 }
