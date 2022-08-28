@@ -1,7 +1,12 @@
+header {
+  border-bottom: 1px solid #2596be;
+}
+
 .loading {
-  width: 30vw;
-  margin-left: 35vw;
-  margin-top: 10vh;
+  width: 20vw;
+  margin-left: 40vw;
+  margin-top: 6vh;
+  margin-bottom: 2vh;
   -webkit-animation-name: completarCarga;
           animation-name: completarCarga;
   -webkit-animation-duration: 2s;
@@ -10,6 +15,7 @@
 
 .loading-text {
   width: 100vw;
+  color: #2596be;
   text-align: center;
 }
 
@@ -83,7 +89,7 @@
   z-index: 1;
 }
 
-.product-grid .product-image a.image {
+.product-grid .product-image .image {
   display: block;
 }
 
@@ -118,7 +124,7 @@
   right: 10px;
 }
 
-.product-grid .product-links li a {
+.product-grid .product-links li button {
   color: #333;
   background: transparent;
   font-size: 17px;
@@ -131,7 +137,7 @@
   transition: all 0.3s;
 }
 
-.product-grid .product-links li:last-child a {
+.product-grid .product-links li:last-child button {
   border-bottom: 1px solid #333;
 }
 

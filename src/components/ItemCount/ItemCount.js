@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Itemcount = ({ stock, initial, onAdd, product,price,image }) => {
+const Itemcount = ({ stock, initial, onAdd, product,price,image,itemDetailContainer }) => {
 
     const [counter, setCounter] = useState(initial)
     const increment = () => {
@@ -20,11 +20,9 @@ const Itemcount = ({ stock, initial, onAdd, product,price,image }) => {
             <div className=" col-md-3 col-sm-6">
                 <div className="product-grid">
                     <div className="product-image">
-                        <a href="1" className="image">
-                            <img src={image} alt=""></img>
-                        </a>
+                            <img className="image" src={image} alt=""></img>
                         <ul className="product-links">
-                            <li><a href="2"><i className="fa fa-search"></i></a></li>
+                            <li><button class="button-itemDetail" onClick={()=>itemDetailContainer}><i className="fa fa-search"></i></button></li>
                         </ul>
                     </div>
                     <div className="card-body">

@@ -1,12 +1,14 @@
 .loading{
-    width:30vw;
-    margin-left: 35vw;
-    margin-top: 10vh;
+    width:20vw;
+    margin-left: 40vw;
+    margin-top: 6vh;
+    margin-bottom: 2vh;
     animation-name: completarCarga;
     animation-duration: 2s;
 }
 .loading-text{
     width: 100vw;
+    color: #2596be;
     text-align: center;
 }
 @keyframes completarCarga {
@@ -44,7 +46,7 @@
     position: relative;
     z-index: 1;
 }
-.product-grid .product-image a.image{display: block; }
+.product-grid .product-image .image{display: block; }
 .product-grid .product-image img{
     width: 100%;
     height: auto;
@@ -70,7 +72,7 @@
     transition: all .5s ease 0s;
 }
 .product-grid:hover .product-links{ right: 10px; }
-.product-grid .product-links li a{
+.product-grid .product-links li .button-itemDetail{
     color: #333;
     background: transparent;
     font-size: 17px;
@@ -82,7 +84,7 @@
     display: block;
     transition: all 0.3s;
 }
-.product-grid .product-links li:last-child a{ border-bottom: 1px solid #333; }
+.product-grid .product-links li:last-child .button-itemDetail{ border-bottom: 1px solid #333; }
 .product-grid .add-to-cart{
     background: #A5BA8D;
     color: #fff;
@@ -96,6 +98,12 @@
     bottom: -60px;
     transition: all 0.3s ease 0s;
 }
+
+.cancelItemDetail{
+ width: 100%;
+}
+
+
 
 @media screen and (max-width: 990px){
     .product-grid{ margin-bottom: 30px; }

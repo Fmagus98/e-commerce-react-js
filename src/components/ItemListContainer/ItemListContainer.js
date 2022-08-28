@@ -18,15 +18,8 @@ const ItemListContainer = ({ greeting, onAdd }) => {
     if (loading) {
         return (
             <>
-            {/* <div className="m-2"> */}
-             {/* <h5>loading products...</h5>
-                <div class="progress">
-                    <div className="loading progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>  */}
-                <img className="loading" src="./assets/img/aguila.png" alt="aguila"></img>
-                <h4 className="loading-text">Loading...</h4>
-{/* </div> */}
-
+                <img className="loading" src="./assets/img/aguilaLoading.jpg" alt="aguila"></img>
+                <h3 className="loading-text">Loading...</h3>
             </>)
     }
     const productsTransform = products.map(product => {
