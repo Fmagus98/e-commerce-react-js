@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../asyncMock"
-import ItemCount from "../ItemCount/ItemCount"
+import { getProducts} from "../../asyncMock"
+import Loading from "../Loading/Loading"
+import Item from "../Item/Item"
+
 
 const ItemListContainer = ({ greeting, onAdd }) => {
     //estado en donde muestro algo mientras se carga mi api
     const [loading, setLoading] = useState(true)
     //estado en donde guardo mi array de productos(Products)
     const [products, setProducts] = useState([])
+    //funcion que me trae todos los parametros de URL
     useEffect(() => {
         //cuando la promesa tome los datos, se ejecuta
         getProducts().then(response => {
@@ -14,17 +17,14 @@ const ItemListContainer = ({ greeting, onAdd }) => {
         }).finally(() => {//al finalizar el renderizado hago que mi logo de carga se vaya
             setLoading(false)
         })
-    }, [])//el [] indica que cuando renderize el return div, recien ahi ejecute el useEffect
+    }, [])//el [] indica que cuando renderize el return div00, recien ahi ejecute el useEffect
     if (loading) {
         return (
-            <>
-                <img className="loading" src="./assets/img/aguilaLoading.jpg" alt="aguila"></img>
-                <h3 className="loading-text">Loading...</h3>
-            </>)
+            <Loading/>)
     }
     const productsTransform = products.map(product => {
         return (
-            <ItemCount key={product.id} product={product.name} price={product.price} stock={product.stock} initial={product.initial} onAdd={onAdd} image={product.img} />
+            <Item key={product.id} id={product.id} product={product.name} price={product.price} onAdd={onAdd} image={product.img} />
         )
     })
     return (
