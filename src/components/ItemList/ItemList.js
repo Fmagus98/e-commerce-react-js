@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom"
 
 const ItemList = ({ greeting, onAdd }) => {
     //estado en donde muestro algo mientras se carga mi api
-    const [loading, setLoading] = useState()
+    const [loading, setLoading] = useState(true)
     //estado en donde guardo mi array de productos(Products)
     const [products, setProducts] = useState([])
     //funcion que me trae todos los parametros de URL
