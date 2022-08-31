@@ -16,17 +16,18 @@ const products=[
     {id:"15", name:"Motherboard Gygabyte H410M-H v3", price:"54000", description:"", category:"Motherboard", stock:"65", initial:1 ,img:"/assets/img/products/Motherboard-Gygabyte-H410M-H-v3.webp"},
     {id:"16", name:"Motherboard Msi H310M PRO-M2 PLUS", price:"54000", description:"", category:"Motherboard", stock:"65", initial:1 ,img:"/assets/img/products/Motherboard-Msi-H310M-PRO-M2-PLUS.webp"},
     {id:"17", name:"Motherboard Msi H410M-B PRO", price:"54000", description:"", category:"Motherboard", stock:"65", initial:1 ,img:"/assets/img/products/Motherboard-Msi-PRO-H410M-B.webp"},
-    {id:"18", name:"Nvidia Asus Dual Geforce gtx 1650 4gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Dual Geforce-gtx-1650-4gb.webp"},
-    {id:"19", name:"Nvidia Asus Geforce gtx 1050Ti 4gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Geforce-gtx-1050Ti-4gb.webp"},
-    {id:"20", name:"Nvidia Asus Tuf Gaming Geforce gtx 1650 4gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Tuf-Gaming-Geforce-gtx-1650-4gb.webp"},
-    {id:"21", name:"Nvidia Asus Tuf Gaming-Geforce rtx 3060 12gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Tuf-Gaming-Geforce-rtx-3060-12gb.webp"},
-    {id:"22", name:"Nvidia Gigabyte Geforce gtx 1660 6gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Gigabyte-Nvidia-Geforce-gtx-1660-6gb.webp"},
-    {id:"23", name:"Nvidia Gigabyte Geforce gtx 1660 Super 6gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Gigabyte-Nvidia-Geforce-gtx-1660-Super-6gb.webp"},
-    {id:"24", name:"Nvidia Igame Geforce rtx 3060Ti 12gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Igame-Nvidia-Geforce-rtx-3060Ti-12gb.webp"},
-    {id:"25", name:"Nvidia Msi Geforce gtx 1650 4gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-gtx-1650-4gb.webp"},
-    {id:"26", name:"Nvidia Msi Geforce gtx 2060 Super 8gb", price:"54000", description:"", category:"video-card", stock:"65" , initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-gtx-2060-Super-8gb.webp"},
-    {id:"27", name:"Nvidia Msi Geforce rtx 2060 ventus xs 6gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
-    {id:"28", name:"Nvidia Zotac Gaming Geforce gtx 2060 6gb", price:"54000", description:"", category:"video-card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
+    {id:"18", name:"Nvidia Asus Dual Geforce gtx 1650 4gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Dual Geforce-gtx-1650-4gb.webp"},
+    {id:"19", name:"Nvidia Asus Geforce gtx 1050Ti 4gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Geforce-gtx-1050Ti-4gb.webp"},
+    {id:"20", name:"Nvidia Asus Tuf Gaming Geforce gtx 1650 4gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Tuf-Gaming-Geforce-gtx-1650-4gb.webp"},
+    {id:"21", name:"Nvidia Asus Tuf Gaming-Geforce rtx 3060 12gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Asus-Nvidia-Tuf-Gaming-Geforce-rtx-3060-12gb.webp"},
+    {id:"22", name:"Nvidia Gigabyte Geforce gtx 1660 6gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Gigabyte-Nvidia-Geforce-gtx-1660-6gb.webp"},
+    {id:"23", name:"Nvidia Gigabyte Geforce gtx 1660 Super 6gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Gigabyte-Nvidia-Geforce-gtx-1660-Super-6gb.webp"},
+    {id:"24", name:"Nvidia Igame Geforce rtx 3060Ti 12gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Igame-Nvidia-Geforce-rtx-3060Ti-12gb.webp"},
+    {id:"25", name:"Nvidia Msi Geforce gtx 1650 4gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-gtx-1650-4gb.webp"},
+    {id:"26", name:"Nvidia Msi Geforce gtx 2060 Super 8gb", price:"54000", description:"", category:"GraphicsCard", stock:"65" , initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-gtx-2060-Super-8gb.webp"},
+    {id:"27", name:"Nvidia Msi Geforce rtx 2060 ventus xs 6gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
+    {id:"28", name:"Nvidia Zotac Gaming Geforce gtx 2060 6gb", price:"54000", description:"", category:"GraphicsCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
+    {id:"29", name:"Nvidia Zotac Gaming Geforce gtx 2060 6gb", price:"54000", description:"", category:"MemoryCard", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
 
 ]
 export const getProducts =()=>{
@@ -40,6 +41,14 @@ export const getProductsId =(productId)=>{
     return new Promise((resolve)=>{
         setTimeout(()=>{
         resolve(products.find(p=>p.id===productId))
+        },2000)
+    })
+}
+
+export const getProductsCategory =(productCategory)=>{
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+        resolve(products.filter(p=>p.category===productCategory))
         },2000)
     })
 }

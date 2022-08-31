@@ -62,42 +62,7 @@
     top: 10px;
     left: 0;
 }
-.product-grid .product-links{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    position: absolute;
-    top: 10px;
-    right: -50px;
-    transition: all .5s ease 0s;
-}
-.product-grid:hover .product-links{ right: 10px; }
-.product-grid .product-links li .button-itemDetail{
-    color: #333;
-    background: transparent;
-    font-size: 17px;
-    line-height: 38px;
-    width: 38px;
-    height: 38px;
-    border: 1px solid #333;
-    border-bottom: none;
-    display: block;
-    transition: all 0.3s;
-}
-.product-grid .product-links li:last-child .button-itemDetail{ border-bottom: 1px solid #333; }
-.product-grid .add-to-cart{
-    background: #A5BA8D;
-    color: #fff;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    width: 100%;
-    padding: 10px 26px;
-    position: absolute;
-    left: 0;
-    bottom: -60px;
-    transition: all 0.3s ease 0s;
-}
+
 
 .cancelItemDetail{
  width: 100%;
