@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProducts, getProductsCategory } from "../../asyncMock"
+import { getProducts, getProductsCategory,getProductsSearch } from "../../asyncMock"
 import Loading from "../Loading/Loading"
 import Item from "../Item/Item"
 import { useParams } from "react-router-dom"
@@ -22,18 +22,24 @@ const ItemList = ({ greeting, onAdd }) => {
                 setLoading(false)
             })
         }
-        //cuando la promesa tome los datos, se ejecuta
-        else {
+        else if(params.searchNameCategory) {
+            getProductsSearch(params.searchNameCategory).then(response => {
+                setProducts(response)//guarda mi array de productos
+            }).finally(() => {//al finalizar el renderizado hago que mi logo de carga se vaya
+                setLoading(false)
+            })
+        }
+        else{
             getProducts().then(response => {
                 setProducts(response)//guarda mi array de productos
             }).finally(() => {//al finalizar el renderizado hago que mi logo de carga se vaya
                 setLoading(false)
             })
         }
-    }, [params.categoryId])//el [] indica que cuando renderize el return div, recien ahi ejecute el useEffect
+    }, [params.categoryId,params.searchNameCategory])//el [] indica que cuando renderize el return div, recien ahi ejecute el useEffect
 
     if (loading) {
-        console.log(loading)
+        console.log(products)
         return (
             <Loading />)
     }
@@ -45,3 +51,61 @@ const ItemList = ({ greeting, onAdd }) => {
     return (<>{productsTransform}</>)
 }
 export default ItemList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const [usuarios, setUsuarios]= useState([]);
+//   const [tablaUsuarios, setTablaUsuarios]= useState([]);
+//   const [busqueda, setBusqueda]= useState("");
+
+// tablaUsuarios esta el array 
+
+// const handleChange=e=>{
+//   setBusqueda(e.target.value);
+//   filtrar(e.target.value);
+// }
+
+// const filtrar=(terminoB+usqueda)=>{
+//   var resultadosBusqueda=tablaUsuarios.filter((elemento)=>{
+//     if(elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+//     || elemento.company.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+//     ){
+//       return elemento;
+//     }
+//   });
+//   setUsuarios(resultadosBusqueda);
+// }
+
+// useEffect(()=>{
+// peticionGet();
+// },[])
+
+//   return (
+//     <div className="App">
+//       <div className="containerInput">
+//         <input
+//           className="form-control inputBuscar"
+//           value={busqueda}
+//           placeholder="Búsqueda por Nombre o Empresa"
+//           onChange={handleChange}
+//         />
+//         <button className="btn btn-success">
+//           <FontAwesomeIcon icon={faSearch}/>
+//         </button>
+//       </div>
+//   );
+// }

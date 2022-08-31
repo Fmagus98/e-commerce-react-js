@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<ItemListContainer onAdd={OnAddCart} greeting={"productos"} />}/>
         <Route path="/category/:categoryId" element={<ItemListContainer onAdd={OnAddCart} greeting={"productos"} />}/>
         <Route path="/detail/:productId" element={<ItemDetailContainer />}/>
+        <Route path="/search/:searchNameCategory" element={<ItemListContainer onAdd={OnAddCart} greeting={"productos"} />}/>
       </Routes>
     </BrowserRouter>
   );

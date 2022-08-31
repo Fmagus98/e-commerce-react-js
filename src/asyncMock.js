@@ -40,7 +40,7 @@ export const getProducts =()=>{
 export const getProductsId =(productId)=>{
     return new Promise((resolve)=>{
         setTimeout(()=>{
-        resolve(products.find(p=>p.id===productId))
+        resolve(products.find(product=>product.id===productId))
         },2000)
     })
 }
@@ -48,8 +48,18 @@ export const getProductsId =(productId)=>{
 export const getProductsCategory =(productCategory)=>{
     return new Promise((resolve)=>{
         setTimeout(()=>{
-        resolve(products.filter(p=>p.category===productCategory))
+        resolve(products.filter(product=>product.category===productCategory))
         },2000)
     })
 }
+
+export const getProductsSearch =(productSearch)=>{
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+        resolve(products.filter(product=>product.name.toLowerCase().includes(productSearch.toLowerCase())))
+        },2000)
+    })
+}
+
+
 

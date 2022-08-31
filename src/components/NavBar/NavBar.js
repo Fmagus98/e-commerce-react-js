@@ -1,27 +1,35 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CartWidget from "./CartWidget";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import {useState} from "react"
 
-function NavBar({countCart}) {
+function NavBar({ countCart }) {
+    
+    const[search, setSearch]=useState("")
+    const handleChange=(e)=>{
+        setSearch(e.target.value)
+    }
+
     return (
         <header className=" p-3 mb-3">
             <div>
                 <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                        <img src="/assets/img/aguila.png" alt=""className="bi me-2" width="40" height="32" role="img"></img>
+                        <img src="/assets/img/aguila.png" alt="" className="bi me-2" width="40" height="32" role="img"></img>
                     </a>
                     <ul className="nav col-12 col-lg-4 me-lg-auto justify-content-center  mb-md-0">
-                       <Link to={"/"}><li className="nav-link px-2 link-dark">index</li></Link>
-                       <Link to={"/category/Motherboard"}><li className="nav-link px-2 link-dark" >MotherBoard</li></Link>
-                       <Link to={"/category/GraphicsCard"}><li className="nav-link px-2 link-dark" >Graphics card</li></Link>
-                       <Link to={"/category/MemoryCard"}><li className="nav-link px-2 link-dark" >Memory Card</li></Link>
+                        <Link to={"/"}><li className="nav-link px-2 link-dark">index</li></Link>
+                        <Link to={"/category/Motherboard"}><li className="nav-link px-2 link-dark" >MotherBoard</li></Link>
+                        <Link to={"/category/GraphicsCard"}><li className="nav-link px-2 link-dark" >Graphics card</li></Link>
+                        <Link to={"/category/MemoryCard"}><li className="nav-link px-2 link-dark" >Memory Card</li></Link>
                     </ul>
                     <form className="col-12 col-lg-6 mb-3 mb-lg-0 me-lg-5" role="search">
-                        <input type="search" className="form-control" placeholder="Search..." aria-label="Search"></input>
+                      <input type="search" className="form-control" placeholder="Search products/category" aria-label="Search"  onChange={handleChange}></input>
+                      <Link to={`/search/${search}`}> <button className="btn"></button></Link> 
                     </form>
                     <div className="dropdown text-end col-12 col-lg-auto me-lg-3">
-                    <a href="#5" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#5" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="/assets/img/user.png" alt="mdo" width="32" height="32" className="rounded-circle"></img>
                         </a>
                         <ul className="dropdown-menu text-small">
@@ -31,7 +39,7 @@ function NavBar({countCart}) {
                             <li><a className="dropdown-item" href="#9">Sign out</a></li>
                         </ul>
                     </div>
-                    <CartWidget counter={countCart}/>
+                    <CartWidget counter={countCart} />
                 </div>
             </div>
         </header>
