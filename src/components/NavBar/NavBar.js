@@ -26,6 +26,7 @@ function NavBar({ countCart }) {
                             <Link className="nav-item" to={"/category/Motherboard"}><li className="nav-link text-white">MotherBoard</li></Link>
                             <Link className="nav-item" to={"/category/GraphicsCard"}><li className="nav-link text-white">Graphics card</li></Link>
                             <Link className="nav-item" to={"/category/MemoryRam"}><li className="nav-link text-white">Memory RAM</li></Link>
+
                         </ul>
                         <form className="d-flex col-6" role="search">
                             <input className="form-control me-4" type="search" placeholder="Search products..." aria-label="Search" onChange={handleChange}></input>

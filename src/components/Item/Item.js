@@ -13,6 +13,7 @@ const Item = ({object}) => {
                         <h6 className="card-title">{object.name}</h6>
                         <div className="price m-2">${object.price}</div>
                         <Link to={`/detail/${object.id}`} className="button-item-detail d-block btn m-auto ">See product</Link>
+
                     </div>
                 </div>
             </div>
