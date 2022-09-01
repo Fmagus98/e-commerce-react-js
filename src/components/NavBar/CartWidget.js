@@ -2,9 +2,9 @@ const CartWidget =({counter})=>{
 
 
     return(
-        <div className="col-12 col-lg-auto justify-content center">
-                    <i className="fa-light fa-cart-shopping"></i>
-                    <p className="d-inline">{counter}</p>
+        <div className="col-12 col-lg-auto m-auto text-white">
+                    <i className="fas fa-shopping-cart "></i>
+                    <p className="d-inline"> {counter}</p>
         </div>
     )
 }
