@@ -5,15 +5,14 @@
 <ul>
 <li>Html</li>
 <li>Sass</li>
+<li>Bootstrap</li>
 <li>React Js</li>
 <li>React DOM</li>
 <li>React Router</li>
-<br>
 <ul>
 <br>
 <h2>Content</h2>
 <ul>
-<li>Bootstrap</li>
 <li>Api call simulation with promise(products)</li>
 </ul>
 <br>
