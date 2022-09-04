@@ -8,8 +8,9 @@ function NavBar({ countCart }) {
 
     const [search, setSearch] = useState("")
     const handleChange = (e) => {
-        if(e.target.value.length>0)
-        setSearch(e.target.value)
+        
+        if (e.target.value.length > 0)
+            setSearch(e.target.value)
     }
 
     return (
@@ -24,12 +25,12 @@ function NavBar({ countCart }) {
                         <ul className="navbar-nav me-4 mb-2 mb-lg-0">
                             <Link className="nav-item" to={"/"}><li className="nav-link text-white">Home</li></Link>
                             <Link className="nav-item" to={"/category/Motherboard"}><li className="nav-link text-white">MotherBoard</li></Link>
-                            <Link className="nav-item" to={"/category/GraphicsCard"}><li className="nav-link text-white">Graphics card</li></Link>
-                            <Link className="nav-item" to={"/category/MemoryRam"}><li className="nav-link text-white">Memory RAM</li></Link>
+                            <Link className="nav-item" to={"/category/Graphics Card"}><li className="nav-link text-white">Graphics card</li></Link>
+                            <Link className="nav-item" to={"/category/Memory Ram"}><li className="nav-link text-white">Memory RAM</li></Link>
 
                         </ul>
                         <form className="d-flex col-6" role="search">
-                            <input className="form-control me-4" type="search" placeholder="Search products..." aria-label="Search" onChange={handleChange}></input>
+                            <input className="form-control me-4" type="search" placeholder="Search products/category..." aria-label="Search" onChange={handleChange}></input>
                             <Link to={`/search/${search}`}><button className="btn btn-outline-light" type="submit">Search</button></Link>
                         </form>
                         <CartWidget counter={countCart} />

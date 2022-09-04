@@ -1,13 +1,13 @@
-import{Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
-const Item = ({object}) => {
+const Item = ({ object }) => {
     return (
         <>
             <div className=" col-md-3 col-sm-6">
                 <div className="product-grid">
                     <div className="product-image">
-                            <img className="image" src={object.img} alt=""></img>
+                        <img className="image" src={object.img} alt=""></img>
                     </div>
                     <div className="card-body">
                         <h6 className="card-title">{object.name}</h6>
@@ -17,7 +17,7 @@ const Item = ({object}) => {
                     </div>
                 </div>
             </div>
-            </>)
-                }
-                
- export default Item; 
+        </>)
+}
+
+export default Item; 
