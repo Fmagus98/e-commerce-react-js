@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Item = ({ object }) => {
     return (
         <>
-            <div className=" col-md-3 col-sm-6">
+            <div className="animationOpacity col-md-3 col-sm-6">
                 <div className="product-grid">
                     <div className="product-image">
                         <img className="image" src={object.img} alt=""></img>
