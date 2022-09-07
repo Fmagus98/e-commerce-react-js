@@ -16,7 +16,7 @@ const ItemDetailContainer = ({addItem}) => {
         })
     }, [params.productId])
     return (
-        <div className="animationOpacity row w-100"><ItemDetail detailProducts={detailProducts} addItem={addItem} loading={loading} itemCount={itemCount} setItemCount={setItemCount}/></div>
+        <div className="animationOpacity row"><ItemDetail detailProducts={detailProducts} addItem={addItem} loading={loading} itemCount={itemCount} setItemCount={setItemCount}/></div>
     )
 }
 export default ItemDetailContainer;

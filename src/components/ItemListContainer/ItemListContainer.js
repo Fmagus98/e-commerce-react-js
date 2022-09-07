@@ -2,6 +2,7 @@ import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react";
 import { getProducts, getProductsCategory, getProductsSearch } from "../../asyncMock"
 import { useParams } from "react-router-dom"
+import Loading from "../Loading/Loading";
 
 
 const ItemListContainer = () => {
@@ -25,13 +26,21 @@ const ItemListContainer = () => {
                 setLoading(false)
             })
         }, [categoryId,searchNameCategory])//el [] indica que cuando renderize el return div, recien ahi ejecute el useEffect
-    
+        if (loading) {
+            return (
+                <Loading infoLoad={"Loading..."} />)
+        }
+        if (products.length === 0) {
+            return (<Loading infoLoad={`We're sorry, the product ${searchNameCategory} is not available in our store`} />)
+        }
+        else {
     return (
         <>
-            <div className="listProducts row w-100">
-                <ItemList loading={loading} searchNameCategory={searchNameCategory} products={products}/>
+            <div className="listProducts row">
+                <ItemList loading={loading} searchNameCategory={searchNameCategory} products={products} setLoading={setLoading}/>
             </div>
         </>
     )
+        }
 }
 export default ItemListContainer;

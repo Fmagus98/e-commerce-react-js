@@ -1,10 +1,11 @@
 
 import Loading from "../Loading/Loading"
 import Item from "../Item/Item"
+
 import SubCategory from "../SubCategory/SubCategory"
 
 
-const ItemList = ({loading, products,searchNameCategory}) => {
+const ItemList = ({ loading, products,searchNameCategory}) => {
 
     //condicional que renderiza el componente Loading
     if (loading) {

@@ -6,7 +6,6 @@
     animation-name: completarCarga;
     animation-duration: 2s;
 }
-
 .loading-text {
     width: 100vw;
     color: #2596be;
@@ -43,6 +42,7 @@
 }
 
 .animationOpacity {
+    width: 100vw;
     animation-name: loadingProducts;
     animation-duration: 2s;
 }
@@ -59,6 +59,10 @@
     100% {
         opacity: 1
     }
+}
+
+.listProducts{
+    width:100vw;
 }
 
 .product-grid {

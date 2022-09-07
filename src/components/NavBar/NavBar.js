@@ -2,9 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useState} from "react"
 
-function NavBar({ countCart }) {
+function NavBar() {
+
 
     const [search, setSearch] = useState("")
     const handleChange = (e) => {
@@ -33,7 +34,7 @@ function NavBar({ countCart }) {
                             <input className="form-control me-4" type="search" placeholder="Search products/category..." aria-label="Search" onChange={handleChange}></input>
                             <Link to={`/search/${search}`}><button className="btn btn-outline-light" type="submit">Search</button></Link>
                         </form>
-                        <CartWidget counter={countCart} />
+                        <CartWidget />
                     </div>
                 </div>
             </nav>
