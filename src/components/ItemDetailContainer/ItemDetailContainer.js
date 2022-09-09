@@ -6,7 +6,6 @@ const ItemDetailContainer = ({addItem}) => {
     const [detailProducts, setDetailProducts] = useState({});
     const [loading, setLoading] = useState()
     const params = useParams()
-    const [itemCount, setItemCount] = useState(true)
     useEffect(() => {
         setLoading(true)
         getProductsId(params.productId).then(response => {
@@ -16,7 +15,7 @@ const ItemDetailContainer = ({addItem}) => {
         })
     }, [params.productId])
     return (
-        <div className="animationOpacity row"><ItemDetail detailProducts={detailProducts} addItem={addItem} loading={loading} itemCount={itemCount} setItemCount={setItemCount}/></div>
+        <div className="animationOpacity row"><ItemDetail detailProducts={detailProducts} addItem={addItem} loading={loading}/></div>
     )
 }
 export default ItemDetailContainer;

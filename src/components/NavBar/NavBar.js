@@ -8,8 +8,7 @@ function NavBar() {
 
 
     const [search, setSearch] = useState("")
-    const handleChange = (e) => {
-        
+    const handleChange = (e) => {    
         if (e.target.value.length > 0)
             setSearch(e.target.value)
     }
@@ -30,7 +29,7 @@ function NavBar() {
                             <Link className="nav-item" to={"/category/Memory Ram"}><li className="nav-link text-white">Memory RAM</li></Link>
 
                         </ul>
-                        <form className="d-flex col-6" role="search">
+                        <form className="d-flex col-6 m-auto" role="search">
                             <input className="form-control me-4" type="search" placeholder="Search products/category..." aria-label="Search" onChange={handleChange}></input>
                             <Link to={`/search/${search}`}><button className="btn btn-outline-light" type="submit">Search</button></Link>
                         </form>

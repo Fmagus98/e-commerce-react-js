@@ -28,7 +28,6 @@ const products=[
     {id:"27", name:"Nvidia Msi Geforce rtx 2060 ventus xs 6gb", price:"54000", description:"", category:"Graphics Card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
     {id:"28", name:"Nvidia Zotac Gaming Geforce gtx 2060 6gb", price:"54000", description:"", category:"Graphics Card", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
     {id:"29", name:"Nvidia Zotac Gaming Geforce gtx 2060 6gb", price:"54000", description:"", category:"Memory Ram", stock:"65", initial:1 ,img:"/assets/img/products/Videocard-Msi-Nvidia-Geforce-rtx-2060-ventus-xs-6gb.webp"},
-
 ]
 export const getProducts =()=>{
     return new Promise((resolve)=>{
