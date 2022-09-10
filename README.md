@@ -16,7 +16,7 @@
 <li>Api call simulation with promise(products)</li>
 <li>find articles by category and name in the search bar</li>
 <li>find articles by category in the Navbar</li>
-<li>Description of the article<li>
-<li>Shopping cart functionality(sum of products, quantities, delete items, empty shopping cart)<li>
+<li>Description of the article</li>
+<li>Shopping cart functionality(sum of products, quantities, delete items, empty shopping cart)</li>
 </ul>
 <br>
