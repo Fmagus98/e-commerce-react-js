@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react"
-const ItemCount =({detailProducts,initial=detailProducts.initial, onAdd})=>{
-    const [quantity, setQuantity] = useState(detailProducts.initial);
+const ItemCount =({stock,initial, onAdd})=>{
+    const [quantity, setQuantity] = useState(initial);
 
 
     useEffect(() => {
@@ -8,7 +8,7 @@ const ItemCount =({detailProducts,initial=detailProducts.initial, onAdd})=>{
    }, [initial])
 
     const increment = () => {
-        if (quantity < detailProducts.stock) {
+        if (quantity < stock) {
             setQuantity(quantity + 1)
         }
     }

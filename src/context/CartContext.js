@@ -6,11 +6,11 @@ export const CartContextProvider = ({ children }) => {
 
     const [cart, setCart] = useState([])
     const addItem = (productToAdd) => {
-        if(!isInCart(productToAdd.id)) {
+        if (!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])
         } else {
             const cartUpdated = cart.map(prod => {
-                if(prod.id === productToAdd.id) {
+                if (prod.id === productToAdd.id) {
                     const productUpdated = {
                         ...prod,
                         quantity: productToAdd.quantity
@@ -24,7 +24,6 @@ export const CartContextProvider = ({ children }) => {
             setCart(cartUpdated)
         }
     }
-
 
     const getQuantity = () => {
         let accu = 0

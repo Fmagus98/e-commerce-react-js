@@ -15,7 +15,7 @@ function NavBar() {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg navbar-dark">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <img className="navbar-brand bi me-2" src="/assets/img/aguila.jpg" alt="" width="40" height="55" role="img"></img>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,9 @@ function NavBar() {
                             <Link className="nav-item" to={"/category/Memory Ram"}><li className="nav-link text-white">Memory RAM</li></Link>
 
                         </ul>
-                        <form className="d-flex col-6 m-auto" role="search">
+                        <form className="d-flex col-lg-6 m-lg-auto" role="search">
                             <input className="form-control me-4" type="search" placeholder="Search products/category..." aria-label="Search" onChange={handleChange}></input>
-                            <Link to={`/search/${search}`}><button className="btn btn-outline-light" type="submit">Search</button></Link>
+                            {search!==""?<Link to={`/search/${search}`}><button className="btn btn-outline-light" type="submit">Search</button></Link>:<button className="btn btn-outline-light" type="submit">Search</button>}
                         </form>
                         <CartWidget />
                     </div>

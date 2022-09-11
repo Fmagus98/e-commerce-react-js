@@ -7,7 +7,7 @@ import { CartContext } from "../../context/CartContext"
 
 const ItemDetail = ({ detailProducts, loading }) => {
     //desestructuración de mi objeto
-    const { name, id, price, category, img } = detailProducts
+    const { name, id, price, category, img,stock } = detailProducts
     const [quantity, setQuantity] = useState(0)
     //traigo la función addItem
     const { addItem, getProductQuantity } = useContext(CartContext)
@@ -16,7 +16,7 @@ const ItemDetail = ({ detailProducts, loading }) => {
     const onAdd = (quantity) => {
         setQuantity(quantity)
         //dentro de addItem le agrego mi array de objetos más el contador
-        addItem({ name, price, category, img, id, quantity })
+        addItem({ name, price, category, img,stock, id, quantity })
     }
     if (loading) {
         return (
@@ -38,7 +38,7 @@ const ItemDetail = ({ detailProducts, loading }) => {
                                 <div className="col-md-6">
                                     <div className="product p-4">
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <Link to={"/"} className="d-flex align-items-center"> <i className="fa fa-long-arrow-left"></i> <span>Back</span> </Link>
+                                            <Link to={"/"} className="d-flex align-items-center text-decoration-none"> <i className="fa fa-long-arrow-left p-1"></i><span>Back</span> </Link>
                                         </div>
                                         <div className="mt-4 mb-3"> <span className="text-uppercase text-muted brand">{category}</span>
                                             <h5 className="text-uppercase">{name}</h5>
@@ -46,7 +46,7 @@ const ItemDetail = ({ detailProducts, loading }) => {
                                             </div>
                                         </div>
                                         <p className="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dicta commodi sequi, distinctio nemo autem velit non est et officiis ipsa architecto quibusdam molestias ut! Modi qui voluptatibus, veniam impedit excepturi omnis dolorem, suscipit nesciunt officiis doloribus ex in libero exercitationem, necessitatibus aut dolore ullam consequuntur eaque quaerat odio illum.</p>
-                                        {quantity > 0 ? <Link to={"/cart"} className="cart mt-4 align-items-center btn button-item-detail text-uppercase mr-2 px-4">checkout</Link> : <ItemCount detailProducts={detailProducts} onAdd={onAdd} initial={quantityAdded} />}
+                                        {quantity > 0 ? <Link to={"/cart"} className="cart mt-4 align-items-center btn button-item-detail text-uppercase mr-2 px-4">checkout</Link> : <ItemCount stock={detailProducts.stock} onAdd={onAdd} initial={quantityAdded?quantityAdded:detailProducts.initial} />}
                                     </div>
                                 </div>
                             </div>
