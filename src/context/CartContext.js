@@ -20,7 +20,6 @@ export const CartContextProvider = ({ children }) => {
                     return prod
                 }
             })
-
             setCart(cartUpdated)
         }
     }
@@ -32,6 +31,7 @@ export const CartContextProvider = ({ children }) => {
         })
         return accu
     }
+
     const isInCart = (id) => {
         return cart.some(prod => prod.id === id)
     }
