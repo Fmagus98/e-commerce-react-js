@@ -10,6 +10,8 @@
 <li>React Js</li>
 <li>React DOM</li>
 <li>React Router</li>
+<li>Firebase</li>
+
 <ul>
 <br>
 <h2>Content</h2>
