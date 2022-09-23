@@ -52,7 +52,8 @@ const Cart = () => {
         }
       })
       if (outStock.length === 0) {
-        addDoc(collection(db, "orders"), buyer)
+        addDoc(collection(db, "orders"), buyer).then(response=>
+          console.log(`this is your order ${response.id}`))
         batch.commit()
       }
       else {
