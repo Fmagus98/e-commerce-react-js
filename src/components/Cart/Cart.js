@@ -1,11 +1,14 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import CartItem from "../CartItem/CartItem"
+import CartOrder from "../CartOrder/CartOrder"
 import { Link } from "react-router-dom"
 import { db } from "../../Utils/firebase"
 import { addDoc, collection, Timestamp, getDocs, where, query, documentId, writeBatch } from "firebase/firestore"
+import { ToastContainer, toast } from 'react-toastify';
 const Cart = () => {
   const { cart, clearCart } = useContext(CartContext)
+  const [messageOrder, setMessageOrder] = useState(false)
   //lista de productos agreagdos al carrito
   const cartItems = cart.map(p => <CartItem key={p.id} prod={p} />)
   //precio total inicial del carrito      
@@ -21,50 +24,74 @@ const Cart = () => {
   const outStock = []
   const createOrder = (e) => {
     e.preventDefault()
-    const regexEmail= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(e.target.cardName.value!=="" && e.target.phone.value!=="" && e.target.email.value!==""&&!regexEmail.test(e.target.email.value)){
-    const buyer = {
-      buyer: {
-        name: e.target.cardName.value,
-        phone: e.target.phone.value,
-        email: e.target.email.value,
-      },
-      items: cart,
-      total: totalProducts,
-      data: Timestamp.fromDate(new Date()),
-      status: "in progress.."
-    }
-    const batch = writeBatch(db)
-    const productsId = cart.map(p => p.id)
-    getDocs(query(collection(db, "products"), where(documentId(), "in", productsId))).then(response => {
-      const { docs } = response
-      docs.forEach(doc => {
-        const dataDoc = doc.data()
-        const stockDb = dataDoc.stock
-        const productAdded = cart.find(prod => prod.id === doc.id)
-        const prodQuantity = productAdded?.quantity
-        if (stockDb >= prodQuantity) {
-          batch.update(doc.ref, { stock: stockDb - prodQuantity })
-          clearCart()
+    const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (e.target.cardName.value !== "" && e.target.phone.value !== "" && e.target.email.value !== "" && !regexEmail.test(e.target.email.value)) {
+      const buyer = {
+        buyer: {
+          name: e.target.cardName.value,
+          phone: e.target.phone.value,
+          email: e.target.email.value,
+        },
+        items: cart,
+        total: totalProducts,
+        date: Timestamp.fromDate(new Date()),
+        status: "in progress.."
+      }
+      const batch = writeBatch(db)
+      const productsId = cart.map(p => p.id)
+      getDocs(query(collection(db, "products"), where(documentId(), "in", productsId))).then(response => {
+        const { docs } = response
+        docs.forEach(doc => {
+          const dataDoc = doc.data()
+          const stockDb = dataDoc.stock
+          const productAdded = cart.find(prod => prod.id === doc.id)
+          const prodQuantity = productAdded?.quantity
+          if (stockDb >= prodQuantity) {
+            batch.update(doc.ref, { stock: stockDb - prodQuantity })
+            clearCart()
+          }
+          else {
+            outStock.push({ id: doc.id, ...dataDoc })
+          }
+        })
+        if (outStock.length === 0) {
+          addDoc(collection(db, "orders"), buyer).then(response =>
+            setMessageOrder(response.id)
+          )
+          batch.commit()
         }
         else {
-          outStock.push({ id: doc.id, ...dataDoc })
+          outStock.map(p => toast.info(`sorry, the product ${p.name} is out of stock`, {
+            icon: false,
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }))
         }
       })
-      if (outStock.length === 0) {
-        addDoc(collection(db, "orders"), buyer).then(response=>
-          console.log(`this is your order ${response.id}`))
-        batch.commit()
-      }
-      else {
-        outStock.map(p => console.log(`sorry, the product ${p.name} is out of stock`))
-      }
-    })
+    }
+    else {
+      toast.info(`complete form, please`, {
+        icon: false,
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    }
   }
-  else{
-    console.log("falta rellenar formulario")
+
+  if (messageOrder) {
+    return (<CartOrder order={messageOrder} />)
   }
-  }
+
   return (
     <section className="w-100 p-4" style={{ backgroundColor: "#eee", borderRadius: ".5rem .5rem 0 0" }}>
       <div className="row">
@@ -94,7 +121,7 @@ const Cart = () => {
                     <div className="card-body">
                       <div className="d-flex justify-content-between align-items-center mb-4">
                         <h5 className="mb-0">Card details</h5>
-                        <img src="/assets/img/aguila.jpg" className="img-fluid rounded-3" style={{ width: "45px" }} alt="Avatar"></img>
+                        <img src="/assets/img/aguila.jpg" style={{ width: "45px" }} alt="Avatar"></img>
                       </div>
                       <p className="small mb-2">Card type</p>
                       <a href="#!" type="submit" className="text-white"><i className="fab fa-cc-mastercard fa-2x me-2"></i></a>
@@ -137,15 +164,16 @@ const Cart = () => {
                           <p className="mb-2">Total</p>
                           <p className="mb-2">${totalProducts}</p>
                         </div>
-                        {cart.length > 0 ? 
-                        <button type="submit" className="btn btn-block btn-lg" style={{ backgroundColor: "rgb(238, 238, 238)" }}>
-                          <div className="d-flex justify-content-between">
-                            <span>${totalProducts}<span> Checkout<i className="fas fa-long-arrow-alt-right ms-2"></i></span></span>
-                          </div>
-                        </button> 
-                        : null
+                        {cart.length > 0 ?
+                          <button type="submit" className="btn btn-block " style={{ backgroundColor: "#2696be", border: "1px solid white", color: "white" }}>
+                            <div className="d-flex justify-content-between">
+                              <span>${totalProducts}<span> Checkout<i className="fas fa-long-arrow-alt-right ms-2"></i></span></span>
+                            </div>
+                          </button>
+                          : null
                         }
                       </form>
+                      <ToastContainer />
                     </div>
                   </div>
                 </div>
