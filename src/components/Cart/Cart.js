@@ -75,7 +75,7 @@ const Cart = () => {
       })
     }
     else {
-      toast.info(`complete form, please`, {
+      toast.info(`complete the form please`, {
         icon: false,
         position: "bottom-right",
         autoClose: 3000,
