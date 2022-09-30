@@ -25,7 +25,7 @@ const Cart = () => {
   const createOrder = (e) => {
     e.preventDefault()
     const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (e.target.cardName.value !== "" && e.target.phone.value !== "" && e.target.email.value !== "" && !regexEmail.test(e.target.email.value)) {
+    if (e.target.cardName.value !== "" && e.target.phone.value !== "" && e.target.email.value !== "" && regexEmail.test(e.target.email.value)) {
       const buyer = {
         buyer: {
           name: e.target.cardName.value,

@@ -24,7 +24,7 @@ function NavBar() {
                     < div className="collapse navbar-collapse" id="navbarColor02">
                         <ul className="navbar-nav me-4 mb-2 mb-lg-0">
                             <Link className="nav-item" to={"/"}><li className="nav-link text-white">Home</li></Link>
-                            <Link className="nav-item" to={"/category/Motherboard"}><li className="nav-link text-white">MotherBoard</li></Link>
+                            <Link className="nav-item" to={"/category/Motherboard"}><li className="nav-link text-white">Motherboard</li></Link>
                             <Link className="nav-item" to={"/category/Graphics Card"}><li className="nav-link text-white">Graphics card</li></Link>
                             <Link className="nav-item" to={"/category/Memory Ram"}><li className="nav-link text-white">Memory RAM</li></Link>
                         </ul>
